@@ -1,0 +1,27 @@
+name = "pai-radar"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+
+# Daily at 06:00 UTC: refresh the Meta token when it is close to expiring.
+[triggers]
+crons = ["0 6 * * *"]
+
+# Storage for watchlist edits, the Meta token and "first seen" dates.
+# No id needed: Wrangler 4 creates the namespace on the first deploy.
+[[kv_namespaces]]
+binding = "RADAR_KV"
+
+[vars]
+META_GRAPH_VERSION = "v25.0"
+# "on" adds reddit_top, google_news and Google News inside brazil_gap.
+# Their terms restrict commercial reuse: keep "off" in any copy you share or sell.
+PERSONAL_SOURCES = "off"
+SUBREQUEST_LIMIT = "45"
+
+# Secrets (set with `npx wrangler secret put NAME` or in the Cloudflare dashboard):
+#   RADAR_KEY             required, 24+ random characters; part of your connector URL
+#   META_ACCESS_TOKEN     optional, enables Instagram
+#   IG_USER_ID            optional, found automatically if omitted
+#   META_APP_ID, META_APP_SECRET   optional, auto-refresh of user tokens
+#   GITHUB_TOKEN          optional, higher GitHub rate limits
+#   BLUESKY_HANDLE, BLUESKY_APP_PASSWORD   optional, full Bluesky search
