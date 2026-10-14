@@ -8,7 +8,7 @@ It runs on Cloudflare Workers' free plan. Nothing here costs money, and each per
 
 | Tool | Source | Needs |
 |---|---|---|
-| `lab_news` | Lab blogs (OpenAI, DeepMind, Google, Mistral, Microsoft, NVIDIA, Hugging Face, Qwen, Apple, Amazon and more), lab news pages without RSS (Anthropic, Meta AI, xAI, Cohere, DeepSeek), foreign tech press (German, Danish, Spanish, Chinese) and Brazilian outlets | nothing |
+| `lab_news` | Lab blogs (OpenAI, DeepMind, Google, Mistral, Microsoft, NVIDIA, Hugging Face, Qwen, Apple, Amazon and more), lab news pages without RSS (Anthropic, Meta AI, xAI, Cohere, DeepSeek), foreign tech press in 13 switchable languages (German, Danish, Spanish, Chinese on by default; French, Italian, Japanese, Korean, Russian independent outlets, Arabic, Turkish, Indonesian, Hindi off until you turn them on) and Brazilian outlets | nothing |
 | `github_releases` | New repos and releases from 16 AI lab GitHub orgs | optional `GITHUB_TOKEN` |
 | `hf_trending` | Trending models, Spaces and daily papers on Hugging Face | nothing |
 | `arxiv_new` | Newest arXiv papers in AI categories | nothing |
@@ -17,7 +17,7 @@ It runs on Cloudflare Workers' free plan. Nothing here costs money, and each per
 | `youtube_videos` | Latest videos from watched channels (public feeds, no key) | nothing |
 | `instagram_posts` | Captions, Reels and engagement from watched business and creator accounts (Meta's official API) | `META_ACCESS_TOKEN` |
 | `brazil_gap` | The "post first" check: did Brazilian sites, Instagram or YouTube already cover these keywords? | Instagram optional |
-| `watchlist` | Add or remove feeds, handles, channels and orgs | nothing |
+| `watchlist` | Switch foreign-desk languages on or off; add or remove feeds, handles, channels and orgs | nothing |
 | `radar_status` | What is switched on, and what is not | nothing |
 | `reddit_top`, `google_news` | Personal use only, off by default (`PERSONAL_SOURCES = "on"`) | nothing |
 
@@ -38,7 +38,7 @@ See [docs/SETUP.md](docs/SETUP.md). It takes about 20 minutes without Instagram 
 
 ```
 npm install
-npm test          # 19 tests, no network needed
+npm test          # 20 tests, no network needed
 npx wrangler dev  # local server; put RADAR_KEY in .dev.vars
 ```
 

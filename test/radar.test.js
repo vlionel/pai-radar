@@ -205,3 +205,22 @@ test("meta token refresh only when close to expiry", async () => {
   const r = await refreshMetaToken(env, { fetch: mockFetch([["oauth/access_token", { access_token: "new", expires_in: 5184000 }]]) });
   assert.equal(r.refreshed, true);
 });
+
+test("foreign desk reads only the languages switched on", async () => {
+  const env = baseEnv();
+  const log = [];
+  await call(env, "lab_news", { groups: ["foreign"] }, mockFetch([["", ATOM]], log));
+  assert.ok(log.some((u) => u.includes("t3n.de")), "German is on by default");
+  assert.ok(!log.some((u) => u.includes("lemondeinformatique")), "French is off by default");
+  let r = await call(env, "watchlist", { action: "add", list: "languages", item: "fr" });
+  assert.equal(r.ok, true);
+  r = await call(env, "watchlist", { action: "add", list: "languages", item: "xx" });
+  assert.match(r.error, /unknown language/);
+  log.length = 0;
+  const out = await call(env, "lab_news", { groups: ["foreign"] }, mockFetch([["", ATOM]], log));
+  assert.ok(log.some((u) => u.includes("lemondeinformatique")), "French after switching on");
+  assert.ok(out.languages_read.includes("fr"));
+  log.length = 0;
+  await call(env, "lab_news", { groups: ["foreign"], languages: ["ja"] }, mockFetch([["", ATOM]], log));
+  assert.ok(log.every((u) => !u.includes("t3n.de")), "per-call languages override the setting");
+});

@@ -74,7 +74,7 @@ Your app can stay in **Development** mode. You are the only user, reading public
 
 ## Changing what it watches
 
-Just ask Claude. For example: *"Add the Instagram account @someone to the radar watchlist,"* or *"Show the radar's YouTube list."* Changes are saved in Cloudflare and apply everywhere.
+Just ask Claude. For example: *"Turn on Japanese and Korean on the radar,"* *"Add the Instagram account @someone to the radar watchlist,"* or *"Show the radar's YouTube list."* Changes are saved in Cloudflare and apply everywhere.
 
 ## Sharing with others
 

@@ -166,6 +166,214 @@ export const DEFAULT_SOURCES = {
       "url": "https://www.infoq.cn/feed",
       "lang": "zh",
       "verified": true
+    },
+    {
+      "id": "lmi-ia",
+      "name": "Le Monde Informatique - Intelligence artificielle",
+      "url": "https://www.lemondeinformatique.fr/flux-rss/thematique/intelligence-artificielle/rss.xml",
+      "lang": "fr",
+      "country": "FR",
+      "verified": true
+    },
+    {
+      "id": "lmi-all",
+      "name": "Le Monde Informatique - all news",
+      "url": "https://www.lemondeinformatique.fr/flux-rss/lmi/rss.xml",
+      "lang": "fr",
+      "country": "FR",
+      "verified": true
+    },
+    {
+      "id": "generation-nt",
+      "name": "Generation-NT Actualites",
+      "url": "https://www.generation-nt.com/export/rss.xml",
+      "lang": "fr",
+      "country": "FR",
+      "verified": true
+    },
+    {
+      "id": "journaldugeek",
+      "name": "Journal du Geek",
+      "url": "https://www.journaldugeek.com/feed/",
+      "lang": "fr",
+      "country": "FR",
+      "verified": true
+    },
+    {
+      "id": "hdblog",
+      "name": "HDblog",
+      "url": "https://www.hdblog.it/rss/",
+      "lang": "it",
+      "country": "IT",
+      "verified": true
+    },
+    {
+      "id": "punto-informatico",
+      "name": "Punto Informatico",
+      "url": "https://www.punto-informatico.it/feed/",
+      "lang": "it",
+      "country": "IT",
+      "verified": true
+    },
+    {
+      "id": "itmedia-aiplus",
+      "name": "ITmedia AI+",
+      "url": "https://rss.itmedia.co.jp/rss/2.0/aiplus.xml",
+      "lang": "ja",
+      "country": "JP",
+      "verified": true
+    },
+    {
+      "id": "publickey",
+      "name": "Publickey",
+      "url": "https://www.publickey1.jp/atom.xml",
+      "lang": "ja",
+      "country": "JP",
+      "verified": true
+    },
+    {
+      "id": "gigazine",
+      "name": "GIGAZINE",
+      "url": "https://gigazine.net/news/rss_2.0/",
+      "lang": "ja",
+      "country": "JP",
+      "verified": true
+    },
+    {
+      "id": "forest-watch",
+      "name": "Windows no Mori (Impress Watch)",
+      "url": "https://forest.watch.impress.co.jp/data/rss/1.0/wf/feed.rdf",
+      "lang": "ja",
+      "country": "JP",
+      "verified": true
+    },
+    {
+      "id": "aitimes",
+      "name": "AI Times (aitimes.com)",
+      "url": "https://www.aitimes.com/rss/allArticle.xml",
+      "lang": "ko",
+      "country": "KR",
+      "verified": true
+    },
+    {
+      "id": "etnews-ai",
+      "name": "Electronic Times (etnews) - AI section",
+      "url": "https://rss.etnews.com/04046.xml",
+      "lang": "ko",
+      "country": "KR",
+      "verified": true
+    },
+    {
+      "id": "habr-news",
+      "name": "Habr - all news",
+      "url": "https://habr.com/ru/rss/news/?fl=ru",
+      "lang": "ru",
+      "country": "RU",
+      "verified": true
+    },
+    {
+      "id": "3dnews",
+      "name": "3DNews",
+      "url": "https://3dnews.ru/news/rss/",
+      "lang": "ru",
+      "country": "RU",
+      "verified": true
+    },
+    {
+      "id": "thebell",
+      "name": "The Bell",
+      "url": "https://thebell.io/feed",
+      "lang": "ru",
+      "country": "RU",
+      "verified": true
+    },
+    {
+      "id": "cnews",
+      "name": "CNews.ru",
+      "url": "https://www.cnews.ru/inc/rss/news.xml",
+      "lang": "ru",
+      "country": "RU",
+      "verified": true
+    },
+    {
+      "id": "aitnews",
+      "name": "AITnews (Al-Bawaba Al-Tiqniya)",
+      "url": "https://aitnews.com/feed/",
+      "lang": "ar",
+      "country": "SA",
+      "verified": true
+    },
+    {
+      "id": "unlimit-tech",
+      "name": "Unlimit Tech",
+      "url": "https://www.unlimit-tech.com/feed/",
+      "lang": "ar",
+      "country": "AE",
+      "verified": true
+    },
+    {
+      "id": "tech-wd",
+      "name": "Tech World (tech-wd.com)",
+      "url": "https://www.tech-wd.com/wd/feed/",
+      "lang": "ar",
+      "country": "EG",
+      "verified": true
+    },
+    {
+      "id": "webrazzi",
+      "name": "Webrazzi",
+      "url": "https://webrazzi.com/feed/",
+      "lang": "tr",
+      "country": "TR",
+      "verified": true
+    },
+    {
+      "id": "shiftdelete",
+      "name": "ShiftDelete.Net",
+      "url": "https://www.shiftdelete.net/feed",
+      "lang": "tr",
+      "country": "TR",
+      "verified": true
+    },
+    {
+      "id": "donanimhaber",
+      "name": "DonanimHaber (all news)",
+      "url": "https://www.donanimhaber.com/rss/tum/",
+      "lang": "tr",
+      "country": "TR",
+      "verified": true
+    },
+    {
+      "id": "detik-inet",
+      "name": "detikInet",
+      "url": "https://inet.detik.com/rss",
+      "lang": "id",
+      "country": "ID",
+      "verified": true
+    },
+    {
+      "id": "cnbc-id-tech",
+      "name": "CNBC Indonesia - Tech",
+      "url": "https://www.cnbcindonesia.com/tech/rss",
+      "lang": "id",
+      "country": "ID",
+      "verified": true
+    },
+    {
+      "id": "amarujala-tech",
+      "name": "Amar Ujala - Tech Diary",
+      "url": "https://www.amarujala.com/rss/tech-diary.xml",
+      "lang": "hi",
+      "country": "IN",
+      "verified": true
+    },
+    {
+      "id": "amarujala-technology",
+      "name": "Amar Ujala - Technology",
+      "url": "https://www.amarujala.com/rss/technology.xml",
+      "lang": "hi",
+      "country": "IN",
+      "verified": true
     }
   ],
   "brazil": [
@@ -206,11 +414,46 @@ export const DEFAULT_SOURCES = {
     }
   ],
   "pages": [
-    {"id": "anthropic", "name": "Anthropic News", "url": "https://www.anthropic.com/news", "prefix": "/news/", "lang": "en", "verified": false},
-    {"id": "meta-ai", "name": "AI at Meta Blog", "url": "https://ai.meta.com/blog/", "prefix": "/blog/", "lang": "en", "verified": false},
-    {"id": "xai", "name": "xAI News", "url": "https://x.ai/news", "prefix": "/news/", "lang": "en", "verified": false},
-    {"id": "cohere", "name": "Cohere Blog", "url": "https://cohere.com/blog", "prefix": "/blog/", "lang": "en", "verified": false},
-    {"id": "deepseek", "name": "DeepSeek API News", "url": "https://api-docs.deepseek.com/", "prefix": "/news/", "lang": "en", "verified": false}
+    {
+      "id": "anthropic",
+      "name": "Anthropic News",
+      "url": "https://www.anthropic.com/news",
+      "prefix": "/news/",
+      "lang": "en",
+      "verified": false
+    },
+    {
+      "id": "meta-ai",
+      "name": "AI at Meta Blog",
+      "url": "https://ai.meta.com/blog/",
+      "prefix": "/blog/",
+      "lang": "en",
+      "verified": false
+    },
+    {
+      "id": "xai",
+      "name": "xAI News",
+      "url": "https://x.ai/news",
+      "prefix": "/news/",
+      "lang": "en",
+      "verified": false
+    },
+    {
+      "id": "cohere",
+      "name": "Cohere Blog",
+      "url": "https://cohere.com/blog",
+      "prefix": "/blog/",
+      "lang": "en",
+      "verified": false
+    },
+    {
+      "id": "deepseek",
+      "name": "DeepSeek API News",
+      "url": "https://api-docs.deepseek.com/",
+      "prefix": "/news/",
+      "lang": "en",
+      "verified": false
+    }
   ],
   "github_orgs": [
     "openai",
@@ -398,5 +641,20 @@ export const DEFAULT_SOURCES = {
     "ClaudeAI",
     "MachineLearning",
     "brdev"
+  ],
+  "languages": [
+    "de",
+    "da",
+    "es",
+    "zh"
   ]
+};
+
+// Languages of the foreign desk. English and Portuguese are always read
+// (labs and Brazilian outlets); these are the ones you can switch on and off.
+// Danish is not a G20 language but is kept by choice.
+export const LANGUAGES = {
+  de: "German", da: "Danish", es: "Spanish", zh: "Chinese", fr: "French", it: "Italian",
+  ja: "Japanese", ko: "Korean", ru: "Russian (independent outlets only)", ar: "Arabic",
+  tr: "Turkish", id: "Indonesian", hi: "Hindi",
 };

@@ -1,4 +1,4 @@
-import { DEFAULT_SOURCES } from "../sources.js";
+import { DEFAULT_SOURCES, LANGUAGES } from "../sources.js";
 import { getSources, getString, saveSources, putJson } from "../lib/store.js";
 import { igUserId, metaToken } from "./social.js";
 import { personalOn } from "./personal.js";
@@ -14,12 +14,13 @@ const LISTS = {
   bluesky: { key: "handle", shape: '{"handle","name"}' },
   arxiv_categories: { key: null, shape: '"cs.AI"' },
   reddit_subs: { key: null, shape: '"LocalLLaMA"' },
+  languages: { key: null, shape: '"fr" (foreign-desk languages switched on: ' + Object.keys(LANGUAGES).join(", ") + ")" },
 };
 
 export const watchlist = {
   name: "watchlist",
   description:
-    "View or change what the radar watches: feeds, news pages, GitHub orgs, Instagram handles, YouTube channels, Bluesky accounts, arXiv categories, subreddits. Changes are saved and apply to every tool and every future call.",
+    "View or change what the radar watches: foreign-desk languages (switch French, Japanese, Russian… on or off), feeds, news pages, GitHub orgs, Instagram handles, YouTube channels, Bluesky accounts, arXiv categories, subreddits. Changes are saved and apply to every tool and every future call.",
   inputSchema: {
     type: "object",
     required: ["action"],
@@ -47,6 +48,7 @@ export const watchlist = {
     const list = sources[args.list] || [];
     const idOf = (x) => (spec.key ? (typeof x === "string" ? x : x?.[spec.key]) : x);
     const id = String(idOf(args.item)).replace(/^@/, "");
+    if (args.list === "languages" && !LANGUAGES[id]) return { error: `unknown language "${id}". Use one of: ${Object.keys(LANGUAGES).join(", ")}` };
     if (args.action === "add") {
       if (spec.key && typeof args.item !== "object") return { error: `add expects an object: ${spec.shape}` };
       if (spec.key === "handle") args.item.handle = args.item.handle.replace(/^@/, "");

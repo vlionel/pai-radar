@@ -1,6 +1,7 @@
 import { parseFeed } from "../lib/feed.js";
 import { fetchText, pool } from "../lib/http.js";
 import { getJson, getSources, putJson } from "../lib/store.js";
+import { LANGUAGES } from "../sources.js";
 import { decodeEntities, hoursAgo, isAfter, matchesAny, stripHtml } from "../lib/text.js";
 
 export const SINCE = { type: "number", description: "Look back this many hours (default 24, max 720).", minimum: 1, maximum: 720 };
@@ -59,11 +60,12 @@ export async function readPage(src, ctx) {
 export const labNews = {
   name: "lab_news",
   description:
-    "Latest posts from AI lab blogs, the foreign desk (German, Danish, Spanish, Chinese tech press) and Brazilian tech outlets, read from RSS/Atom feeds and from lab news pages that have no feed. Use this first to see what was announced. Foreign items keep their original language and link; translate them yourself.",
+    "Latest posts from AI lab blogs, the foreign desk (tech press in up to 13 languages: the G20 languages plus Danish, each switchable) and Brazilian tech outlets, read from RSS/Atom feeds and from lab news pages that have no feed. Use this first to see what was announced. Foreign items keep their original language and link; translate them yourself.",
   inputSchema: {
     type: "object",
     properties: {
       groups: { type: "array", items: { type: "string", enum: ["labs", "pages", "foreign", "brazil"] }, description: 'Which source groups to read. Default ["labs","pages"].' },
+      languages: { type: "array", items: { type: "string", enum: Object.keys(LANGUAGES) }, description: "Foreign-desk languages to read this call. Default: the languages switched on in the watchlist (see `watchlist` list `languages`). English-language items are always kept." },
       since_hours: SINCE,
       keywords: KEYWORDS,
       limit: LIMIT(40),
@@ -74,7 +76,11 @@ export const labNews = {
     const groups = args.groups?.length ? args.groups : ["labs", "pages"];
     const since = hoursAgo(clampSince(args.since_hours));
     const jobs = [];
-    for (const g of groups) for (const s of sources[g] || []) jobs.push({ ...s, group: g });
+    const langs = new Set(args.languages?.length ? args.languages : sources.languages || []);
+    for (const g of groups) for (const s of sources[g] || []) {
+      if (g === "foreign" && s.lang !== "en" && !langs.has(s.lang)) continue;
+      jobs.push({ ...s, group: g });
+    }
     const results = await pool(jobs, 6, (s) => (s.group === "pages" ? readPage(s, ctx) : readFeed(s, ctx)));
     const items = [];
     const errors = [];
@@ -105,6 +111,7 @@ export const labNews = {
     items.sort((a, b) => String(b.published || b.first_seen || "").localeCompare(String(a.published || a.first_seen || "")));
     return {
       count: items.length,
+      languages_read: groups.includes("foreign") ? [...langs] : [],
       items: items.slice(0, args.limit || 40),
       errors,
       notes: baselines.length ? [`First read of: ${baselines.join(", ")}. Their current links were stored as a baseline; new links will show from the next call.`] : [],
